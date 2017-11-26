@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Hangman Game </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="hangman.css">
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body class=>
+		<h1> 
+			"Hangman Game" </h1>
+		<nav class="navbar navbar-light bg-light navigation" >
+  		<a class="navbar-brand" href="#">Contact Us</a>
+</nav>
+	<div class="container">
+		<div class="row">
+			<!-- <div class="col-md-5 firstColumn">
+				<p> pic here Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni libero omnis quia accusantium officia. Excepturi iure consequatur magnam. Beatae dolorem excepturi officiis iure, dolores id voluptatum quibusdam, natus animi omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, consectetur voluptatem. Dignissimos nisi maiores quae odio aliquam accusantium odit, harum commodi pariatur magnam dolorum fuga, necessitatibus, natus deserunt voluptatem autem.</p>
+			</div>	 -->
+			<div class="col-md-5 secondColumn">
+				<p> <button id="startLine" style = "display:block"  href="#"></button>
+				<div id="actualGame" href="#" style = "display:none;">
+					<div id="wins"></div>
+					<br>
+					<div id="loss"></div>
+					<br><br>
+					<div id="selectedWord"></div>
+					<br>
+					<div id="guesses"></div>
+					<br><br>
+					<div id="tries"></div>
+					<br>
+					<div id="letters"></div>
+				</div>
+				 </p>
+			</div>
+			
+		</div>
+	</div>
+
+
+	<footer class="footer">COPYRIGHTED BY ASAD FAHEEM @2017 </footer>
+
+	<script type="text/javascript">
+	
+		var words = ["glaucous",  
+		"starbucks", 
+		"chipotle", 
+		"ireland", 
+		"washington", 
+		"subway", 
+		"caffeine"]; 
+
+		// var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];	
+		
+		var winScore = 0;
+		var lossScore = 0;  
+		var triesLeft = 5;
+		var lettersUsed = 0; 
+		var wordsObj = 0;
+		var guessesMade = []; 
+		var wordRanSelected = [];  
+
+
+
+			startLine = document.querySelector("#startLine"); 
+			startLine.innerHTML = `Press any key or Click this Button to start the Game` ; 
+				
+
+			wins = document.querySelector("#wins"); 
+			wins.innerHTML = `Your Wins: ${winScore}`; 
+
+			loss = document.querySelector("#loss"); 
+			loss.innerHTML = `Your Losses: ${lossScore}`;
+
+			guesses = document.querySelector("#guesses"); 
+			guesses.innerHTML = "Guesses Made: " + guessesMade;
+
+			tries = document.querySelector("#tries"); 
+			tries.innerHTML = `Tries Left: ${triesLeft}`; 
+
+			letters = document.querySelector("#letters"); 
+			letters.innerHTML =  `Letters Used: ${lettersUsed}`; 
+
+		document.addEventListener("keyup", function disappear() { 
+		
+		startLine.style.display = "none";
+		actualGame.style.display = "block";
+		
+	});
+		
+		document.addEventListener("click", function disappear() { 
+		
+		startLine.style.display = "none";
+		actualGame.style.display = "block";
+		
+	});
+
+	
+	function wordRan(){
+    	rand = words[Math.floor(Math.random()*words.length)];
+    	// word = words[rand];
+		// return word;
+		for (i=0; i < rand.length; i++) {wordRanSelected.push("_");
+			console.log(wordRan); 
+	};
+
+	document.querySelector("#selectedWord").innerHTML = `${wordRanSelected}`;
+	};
+	wordRan(); 
+	
+	document.onkeyup = function (event) {
+		var UserGuess = event.key.toLowerCase();
+		var checkused = guessesMade.indexOf (UserGuess);
+
+		document.querySelector("#guesses").innerHTML = "Guessed Made: " + guessesMade + ', ';
+				if (checkused == -1) {
+					triesLeft--;
+			document.querySelector("#tries").innerHTML = "Guesses Remaining: " + triesLeft;
+			guessesMade.push(UserGuess);
+			};
+			//verify if any guesses remaining 
+			if (triesLeft > 0){
+
+				//run loop to look at each letter indivudually - splice in when correct
+				for (i=0; i < rand.length; i++) {
+					if (UserGuess == rand[i]){
+						
+						wordRanSelected.splice(i, 1, UserGuess)
+
+						document.querySelector("#selectedWord").innerHTML = wordRanSelected;
+					};
+				};
+			};
+
+
+};
+
+	</script>
+</body>
+</html>

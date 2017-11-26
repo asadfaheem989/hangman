@@ -1,0 +1,106 @@
+
+body{
+    background-image: url('https://media.giphy.com/media/l0nR1C4LomifC/giphy.gif');
+    background-size: cover;
+}
+
+h1 {
+	text-align: center; 
+	color: red;
+	padding-bottom: 40px;
+	padding-top: 20px; 
+	border-style: solid; 
+	margin-right: 200px; 
+	margin-left: 200px; 
+}
+.navigation {
+	border-style: groove;
+	padding-left: 600px; 
+}
+
+.firstColumn {
+margin-top: 60px; 
+ 
+padding-bottom: 80px; 
+border-style: double; 
+}
+
+.secondColumn {
+ 
+margin-top: 60px; 
+padding-bottom: 80px; 
+border-style: double;
+background-color: #a1b2c6;
+padding:60px;  
+}
+
+
+
+#startLine {
+	color: blue;
+	text-align: center; 
+	font-weight: bold; 
+	font-size: 20px; 
+}
+
+#wins {
+	padding-top: 20px; 
+	font-size: 30px; 
+}
+
+#loss {
+	font-size: 30px; 
+}
+
+#dashes {
+	font-size: 40px; 
+	text-align: center; 
+
+}
+#tries {
+	font-size: 30px; 
+}
+#letters {
+	font-size: 30px; 
+}
+
+
+
+
+
+
+
+
+.footer {
+	padding: 20px;
+	text-align: center; 
+	margin-top: 20px;
+	border-style: solid;
+	height: 60px; 
+
+}
+
+@media only screen and (max-width: 980px) {
+   
+    body {
+    	width: auto; 
+    	height: auto;
+        background-color: red;
+    }
+}
+@media only screen and (max-width: 768px) {
+  
+    body {
+    	width: auto; 
+    	height: auto;
+        background-color: green;
+    }
+}
+@media only screen and (max-width: 640px) {
+    body {
+    	width: auto; 
+    	height: auto; 
+        background-color: purple; 
+
+    }
+}
